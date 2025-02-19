@@ -97,7 +97,6 @@
                 height: 8px;
             }
         }
-
         /* Tablet Portrait */
         @media (min-width: 768px) and (max-width: 1024px) {
             .carousel {
@@ -149,40 +148,33 @@
                     isTransitioning = false;
                 }, 500);
             }
-
             const updateButtonStates = () => {
                 prevButton.disabled = currentIndex === 0;
                 nextButton.disabled = currentIndex === images.length - 1;
             };
-
             const updateDots = () => {
                 dots.forEach((dot, index) => {
                     dot.classList.toggle('active', index === currentIndex);
                 });
             };
-
             prevButton.addEventListener('click', () => {
                 if (currentIndex > 0) {
                     showImage(currentIndex - 1);
                 }
             });
-
             nextButton.addEventListener('click', () => {
                 if (currentIndex < images.length - 1) {
                     showImage(currentIndex + 1);
                 }
             });
-
             dots.forEach((dot, index) => {
                 dot.addEventListener('click', () => {
                     showImage(index);
                 });
             });
-
             // Initialize
             showImage(currentIndex);
         };
-
         initializeCarousel();
     </script>
 </body>
